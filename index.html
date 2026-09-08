@@ -1,594 +1,1220 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M-Gas | Furahia Upishi Wako – Pay-As-You-Cook LPG</title>
-  <meta name="description" content="Pay-As-You-Cook LPG in Kenya. Free cylinder & smart meter. Top up from KSh 10 via M-Pesa. Free doorstep delivery. Clean, safe cooking for every home.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --blue: #003087;
-      --blue-dark: #001f54;
-      --orange: #f7941d;
-      --orange-bright: #ff9f1c;
-      --white: #ffffff;
-      --light: #f4f7fc;
-      --gray: #64748b;
-      --dark: #0f172a;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      color: var(--dark);
-      background: var(--light);
-      line-height: 1.55;
-      overflow-x: hidden;
-    }
-    h1, h2, h3, h4 {
-      font-family: 'Poppins', 'Inter', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    img { max-width: 100%; height: auto; display: block; }
-    a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>M-Gas | Furahia Upishi Wako – 13KG LPG Offer</title><meta name="description" content="Get a 13KG M-Gas cylinder with KSh 550 deposit, KSh 20 daily payment for 12 months, free 2-burner cooker, free gifts and free delivery countrywide.">
+<meta name="theme-color" content="#003087"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet"><style>
+:root{
+--blue:#003087;
+--blue-dark:#001f54;
+--orange:#f7941d;
+--orange-bright:#ff9f1c;
+--white:#fff;
+--light:#f4f7fc;
+--gray:#64748b;
+--dark:#0f172a;
+--green:#16a34a;
+}
 
-    /* NAV */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(0, 31, 84, 0.96);
-      backdrop-filter: blur(12px);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.55rem 1.4rem;
-      box-shadow: 0 2px 18px rgba(0,0,0,0.18);
-    }
-    .nav-logo img {
-      height: 40px; width: auto;
-      filter: brightness(0) invert(1);
-    }
-    .nav-cta {
-      background: var(--orange); color: white; font-weight: 700;
-      padding: 0.5rem 1.3rem; border-radius: 50px; font-size: 0.9rem;
-      transition: all 0.2s; font-family: 'Poppins', sans-serif;
-    }
-    .nav-cta:hover { background: var(--orange-bright); transform: scale(1.04); }
+*{margin:0;padding:0;box-sizing:border-box}
 
-    /* HERO */
-    .hero {
-      min-height: 92vh;
-      background: url('images/hero-depot.webp') center/cover no-repeat;
-      position: relative;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; color: white;
-      padding-top: 70px;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(165deg, rgba(0,31,84,0.84) 0%, rgba(0,48,135,0.78) 55%, rgba(0,31,84,0.9) 100%);
-    }
-    .hero-content { position: relative; z-index: 2; padding: 2rem 1.4rem; max-width: 900px; }
-    .hero-logo {
-      width: 170px; margin: 0 auto 1.1rem;
-      filter: drop-shadow(0 4px 14px rgba(0,0,0,0.35));
-    }
-    .hero h1 {
-      font-size: clamp(2.5rem, 7.5vw, 4.4rem);
-      font-weight: 800; line-height: 1.05;
-      text-shadow: 0 4px 22px rgba(0,0,0,0.4);
-      margin-bottom: 0.55rem;
-    }
-    .hero h1 span { color: var(--orange); }
-    .hero p {
-      font-size: clamp(1.05rem, 2.6vw, 1.3rem);
-      font-weight: 500; opacity: 0.95; margin-bottom: 1.9rem;
-      max-width: 600px; margin-left: auto; margin-right: auto;
-    }
-    .hero-btns { display: flex; flex-wrap: wrap; gap: 0.85rem; justify-content: center; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.85rem 1.6rem; border-radius: 50px; font-weight: 700;
-      font-size: 0.96rem; transition: all 0.25s; border: none; cursor: pointer;
-      font-family: 'Poppins', sans-serif;
-    }
-    .btn-primary { background: var(--orange); color: white; }
-    .btn-primary:hover { background: var(--orange-bright); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(247,148,29,0.45); }
-    .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.9); }
-    .btn-outline:hover { background: white; color: var(--blue); }
+html{scroll-behavior:smooth}
 
-    /* SECTION COMMON */
-    section { padding: 4.2rem 1.4rem; }
-    .section-title {
-      text-align: center; font-size: clamp(1.85rem, 4.8vw, 2.55rem);
-      font-weight: 800; color: var(--blue-dark); margin-bottom: 0.35rem;
-    }
-    .section-sub {
-      text-align: center; color: var(--gray); max-width: 560px; margin: 0 auto 2.6rem;
-      font-size: 1.02rem;
-    }
+body{
+font-family:'Inter',system-ui,sans-serif;
+color:var(--dark);
+background:var(--light);
+line-height:1.55;
+overflow-x:hidden;
+}
 
-    /* PRODUCT */
-    .product-wrap {
-      max-width: 1080px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr;
-      gap: 2.3rem; align-items: center;
-    }
-    @media (min-width: 800px) {
-      .product-wrap { grid-template-columns: 1.05fr 0.95fr; }
-    }
-    .product-img {
-      border-radius: 18px; overflow: hidden;
-      box-shadow: 0 22px 50px rgba(0,48,135,0.16);
-    }
-    .product-img img { width: 100%; height: 100%; object-fit: cover; min-height: 360px; }
-    .product-info h2 { font-size: 2rem; color: var(--blue-dark); margin-bottom: 0.85rem; line-height: 1.2; }
-    .product-info > p { color: #475569; margin-bottom: 1.3rem; font-size: 1.03rem; }
-    .product-info ul { list-style: none; margin: 1.3rem 0 1.7rem; }
-    .product-info li {
-      display: flex; align-items: flex-start; gap: 0.7rem;
-      margin-bottom: 0.8rem; font-size: 1.01rem;
-    }
-    .product-info li::before {
-      content: '✓'; background: var(--orange); color: white;
-      width: 23px; height: 23px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.72rem; font-weight: 800; flex-shrink: 0; margin-top: 2px;
-    }
+h1,h2,h3,h4{
+font-family:'Poppins','Inter',sans-serif;
+font-weight:800;
+letter-spacing:-.02em
+}
 
-    /* FEATURE CARDS (tall lifestyle) */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-      max-width: 1180px; margin: 0 auto;
-    }
-    .feature-card {
-      position: relative; border-radius: 16px; overflow: hidden;
-      aspect-ratio: 3/4; box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-      background: #000;
-    }
-    .feature-card img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.55s ease;
-    }
-    .feature-card:hover img { transform: scale(1.06); }
-    .feature-card .overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,18,48,0.94) 0%, rgba(0,18,48,0.2) 55%, transparent 100%);
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 1.5rem 1.2rem;
-      color: white;
-    }
-    .feature-card h3 {
-      font-size: 1.2rem; margin-bottom: 0.25rem;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-    .feature-card p { font-size: 0.88rem; opacity: 0.9; line-height: 1.35; }
+img{
+max-width:100%;
+height:auto;
+display:block
+}
 
-    /* VISUAL GRID */
-    .visual-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      max-width: 1180px; margin: 0 auto;
-    }
-    .visual-card {
-      position: relative; border-radius: 14px; overflow: hidden;
-      aspect-ratio: 4/3; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
-    .visual-card img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .visual-card:hover img { transform: scale(1.07); }
-    .visual-card .caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,31,84,0.93));
-      color: white; padding: 1.5rem 0.95rem 0.95rem;
-      font-weight: 600; font-size: 0.92rem;
-      font-family: 'Poppins', sans-serif;
-    }
+a{
+text-decoration:none;
+color:inherit
+}
 
-    /* HOW IT WORKS */
-    .how {
-      background: var(--blue-dark); color: white;
-    }
-    .how .section-title { color: white; }
-    .how .section-sub { color: rgba(255,255,255,0.8); }
-    .steps {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem; max-width: 1080px; margin: 0 auto;
-    }
-    .step {
-      background: rgba(255,255,255,0.07);
-      border-radius: 14px; padding: 1.5rem 1.2rem; text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .step-num {
-      width: 44px; height: 44px; background: var(--orange);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 1.2rem; margin: 0 auto 0.9rem;
-      font-family: 'Poppins', sans-serif;
-    }
-    .step h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .step p { font-size: 0.9rem; opacity: 0.85; }
+/* ================= NAV ================= */
 
-    /* HIGHLIGHT */
-    .highlight {
-      display: grid; grid-template-columns: 1fr;
-      gap: 0; max-width: 1140px; margin: 0 auto;
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 24px 55px rgba(0,48,135,0.16);
-    }
-    @media (min-width: 700px) {
-      .highlight { grid-template-columns: 1fr 1fr; }
-    }
-    .highlight-img { min-height: 320px; }
-    .highlight-img img { width: 100%; height: 100%; object-fit: cover; }
-    .highlight-text {
-      background: var(--blue); color: white;
-      padding: 2.6rem 2rem; display: flex; flex-direction: column; justify-content: center;
-    }
-    .highlight-text h2 { font-size: 1.75rem; margin-bottom: 0.85rem; line-height: 1.25; }
-    .highlight-text p { opacity: 0.92; margin-bottom: 1.4rem; font-size: 1rem; }
+.nav{
+position:fixed;
+top:0;
+left:0;
+right:0;
+z-index:100;
+background:rgba(0,31,84,.97);
+backdrop-filter:blur(12px);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:.25rem 1rem;
+box-shadow:0 2px 18px rgba(0,0,0,.2);
+}
 
-    /* CONTACT */
-    .contact {
-      background: linear-gradient(145deg, var(--blue-dark), var(--blue));
-      color: white; text-align: center; padding: 4.8rem 1.4rem;
-    }
-    .contact h2 { font-size: clamp(1.85rem, 4.8vw, 2.6rem); margin-bottom: 0.4rem; }
-    .contact > p { opacity: 0.9; margin-bottom: 2rem; font-size: 1.08rem; }
-    .contact-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem; max-width: 900px; margin: 0 auto 2rem;
-    }
-    .contact-card {
-      background: rgba(255,255,255,0.1); border-radius: 14px;
-      padding: 1.3rem 1.1rem; border: 1px solid rgba(255,255,255,0.14);
-    }
-    .contact-card strong { display: block; font-size: 0.8rem; opacity: 0.8; margin-bottom: 0.28rem; letter-spacing: 0.03em; }
-    .contact-card a, .contact-card span {
-      font-size: 1.15rem; font-weight: 700; color: var(--orange-bright);
-      font-family: 'Poppins', sans-serif;
-    }
-    .paybill {
-      background: white; color: var(--blue-dark);
-      display: inline-block; padding: 1rem 2rem; border-radius: 12px;
-      font-weight: 700; font-size: 1.12rem;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.15);
-    }
-    .paybill span { color: var(--orange); font-size: 1.4rem; }
+.nav-logo img{
+height:62px;
+width:auto;
+filter:brightness(0) invert(1);
+transition:.3s;
+}
 
-    /* FOOTER */
-    footer {
-      background: #000d1f; color: rgba(255,255,255,0.7);
-      text-align: center; padding: 2.2rem 1.4rem 1.8rem; font-size: 0.88rem;
-    }
-    footer img { height: 34px; margin: 0 auto 0.8rem; opacity: 0.95; }
-    footer strong { color: white; }
+.nav-logo img:hover{
+transform:scale(1.06)
+}
 
-    /* FLOATING WA */
-    .float-wa {
-      position: fixed; bottom: 1.3rem; right: 1.3rem; z-index: 99;
-      background: #25D366; color: white; width: 56px; height: 56px;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 20px rgba(37,211,102,0.5);
-      transition: transform 0.2s;
-    }
-    .float-wa:hover { transform: scale(1.08); }
-    .float-wa svg { width: 28px; height: 28px; }
+.nav-cta{
+background:var(--orange);
+color:white;
+font-weight:800;
+padding:.65rem 1.25rem;
+border-radius:50px;
+font-size:.88rem;
+transition:.25s;
+font-family:'Poppins',sans-serif;
+box-shadow:0 5px 15px rgba(247,148,29,.3);
+}
 
-    /* TRUST */
-    .trust {
-      background: white; padding: 1.4rem 1.4rem;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .trust-inner {
-      max-width: 960px; margin: 0 auto;
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 1.8rem;
-      text-align: center; font-size: 0.9rem; color: var(--gray); font-weight: 500;
-    }
-    .trust-inner span { display: flex; align-items: center; gap: 0.35rem; }
-    .trust-inner strong { color: var(--blue-dark); }
-  </style>
-</head>
-<body>
+.nav-cta:hover{
+background:var(--orange-bright);
+transform:scale(1.05)
+}
 
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="#" class="nav-logo">
-      <img src="images/logo.webp" alt="M-Gas Logo">
-    </a>
-    <a href="#order" class="nav-cta">Get Started</a>
-  </nav>
+/* ================= HERO ================= */
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <img src="images/logo.webp" alt="M-Gas" class="hero-logo">
-      <h1>FURAHIA<br><span>UPISHI WAKO</span></h1>
-      <p>Pay-As-You-Cook LPG • Free cylinder & smart meter • Top up from KSh 10 • Free doorstep delivery</p>
-      <div class="hero-btns">
-        <a href="tel:+254100805122" class="btn btn-primary">Call +254 100 805 122</a>
-        <a href="https://wa.me/254100805122" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp Us</a>
-      </div>
-    </div>
-  </header>
+.hero{
+min-height:94vh;
+background:url('images/hero-depot.webp') center/cover no-repeat;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding-top:85px;
+overflow:hidden;
+}
 
-  <!-- TRUST BAR -->
-  <div class="trust">
-    <div class="trust-inner">
-      <span><strong>Free</strong> cylinder & meter</span>
-      <span>Top up from <strong>KSh 10</strong></span>
-      <span><strong>Free</strong> delivery & install</span>
-      <span>Powered by <strong>Safaricom</strong></span>
-    </div>
-  </div>
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(165deg,
+rgba(0,31,84,.84),
+rgba(0,48,135,.70),
+rgba(0,31,84,.92));
+}
 
-  <!-- PRODUCT -->
-  <section>
-    <div class="product-wrap">
-      <div class="product-img">
-        <img src="images/IMG-20260907-WA0186.jpg" alt="M-Gas – Si gas pekee. Ni service. Ni people. Ni promise.">
-      </div>
-      <div class="product-info">
-        <h2>One product.<br>Everything you need.</h2>
-        <p>Full 13 kg LPG cylinder with smart meter + optional 2-burner stove. Delivered and installed free at your door.</p>
-        <ul>
-          <li>No big upfront cost for the cylinder</li>
-          <li>Top up any amount from KSh 10 via M-Pesa</li>
-          <li>Gas never runs out — we replace before it finishes</li>
-          <li>Safe, clean, smoke-free cooking for the whole family</li>
-        </ul>
-        <a href="#order" class="btn btn-primary">Order Now</a>
-      </div>
-    </div>
-  </section>
+.hero-content{
+position:relative;
+z-index:2;
+padding:2rem 1.2rem;
+max-width:950px;
+animation:heroIn 1s ease;
+}
 
-  <!-- LIFESTYLE FEATURES -->
-  <section style="padding-top: 0.5rem;">
-    <h2 class="section-title">Real kitchens. Real moments.</h2>
-    <p class="section-sub">Clean cooking that fits every Kenyan home and business.</p>
-    <div class="feature-grid">
-      <div class="feature-card">
-        <img src="images/IMG-20260907-WA0176.jpg" alt="Family cooking with M-Gas">
-        <div class="overlay">
-          <h3>Jioni imefika, chakula LAZIMA ipikwe</h3>
-          <p>For the everyday moments that matter.</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <img src="images/IMG-20260907-WA0166.jpg" alt="Healthy family moments">
-        <div class="overlay">
-          <h3>Less Moshi. More Healthy Moments.</h3>
-          <p>Cleaner cooking means a healthier home.</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <img src="images/IMG-20260907-WA0183.jpg" alt="We care every day">
-        <div class="overlay">
-          <h3>Tunakujali Kila Siku</h3>
-          <p>Your cooking journey matters to us.</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <img src="images/IMG-20260907-WA0157.jpg" alt="Tuko Karibu Nawe">
-        <div class="overlay">
-          <h3>Tuko Karibu Nawe</h3>
-          <p>Behind every delivery, a team making it happen.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+@keyframes heroIn{
+from{opacity:0;transform:translateY(25px)}
+to{opacity:1;transform:translateY(0)}
+}
 
-  <!-- MORE SERVICE MOMENTS -->
-  <section style="padding-top: 0;">
-    <div class="feature-grid">
-      <div class="feature-card">
-        <img src="images/IMG-20260907-WA0180.jpg" alt="Support after installation">
-        <div class="overlay">
-          <h3>Ukihitaji usaidizi, Tuko</h3>
-          <p>Our support doesn’t end after installation.</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <img src="images/IMG-20260907-WA0165.jpg" alt="Serving businesses">
-        <div class="overlay">
-          <h3>Hustle Yako, Tuko Nayo</h3>
-          <p>Serving the businesses that serve our communities.</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <img src="images/IMG-20260907-WA0178.jpg" alt="Behind the blue">
-        <div class="overlay">
-          <h3>Behind the Blue, Kuna Commitment</h3>
-          <p>To serve. To help. To show up.</p>
-        </div>
-      </div>
-      <div class="feature-card">
-        <img src="images/IMG-20260907-WA0154.jpg" alt="Customer care">
-        <div class="overlay">
-          <h3>Tuko Hapa Kukuskiza</h3>
-          <p>Swali, concern ama support? Tuko hapa kwa ajili yako.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+.hero-logo{
+width:270px;
+max-width:72vw;
+margin:0 auto .7rem;
+filter:drop-shadow(0 6px 20px rgba(0,0,0,.45));
+animation:logoFloat 3s ease-in-out infinite;
+}
 
-  <!-- HOW IT WORKS -->
-  <section class="how">
-    <h2 class="section-title">How it works</h2>
-    <p class="section-sub">Simple. Fast. Affordable.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Sign up</h3>
-        <p>Call or WhatsApp +254 100 805 122. Free registration.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>We install</h3>
-        <p>Full cylinder + smart meter delivered free to your home.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Top up</h3>
-        <p>Pay any amount from KSh 10 to Paybill 804040.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Cook & relax</h3>
-        <p>We monitor usage and replace the cylinder before it runs out.</p>
-      </div>
-    </div>
-  </section>
+@keyframes logoFloat{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-7px)}
+}
 
-  <!-- SMART METER -->
-  <section>
-    <div class="highlight">
-      <div class="highlight-img">
-        <img src="images/meter-close.webp" alt="Smart meter close-up">
-      </div>
-      <div class="highlight-text">
-        <h2>Smart meter = full control</h2>
-        <p>See exactly how much gas you have left. Pay only for what you use. Automatic cut-off when credit finishes. Safe for homes with children.</p>
-        <a href="#order" class="btn btn-primary">Get your meter today</a>
-      </div>
-    </div>
-  </section>
+.hero h1{
+font-size:clamp(2.5rem,8vw,4.8rem);
+font-weight:900;
+line-height:1;
+text-shadow:0 4px 22px rgba(0,0,0,.45);
+margin-bottom:.55rem;
+}
 
-  <!-- REAL HOMES -->
-  <section style="padding-top: 0;">
-    <h2 class="section-title">In real homes & kitchens</h2>
-    <p class="section-sub">From compact setups to full family cooking.</p>
-    <div class="visual-grid">
-      <div class="visual-card">
-        <img src="images/IMG-20260907-WA0158.jpg" alt="Chakula iko jikoni">
-        <div class="caption">Chakula iko jikoni</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/kitchen.webp" alt="Simple kitchen setup">
-        <div class="caption">Simple home setup</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/IMG-20260907-WA0150.jpg" alt="Blue M-Gas stove">
-        <div class="caption">Reliable 2-burner stove</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/IMG-20260907-WA0155.jpg" alt="Full cooker">
-        <div class="caption">Bigger cooking needs covered</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/smart-meter.webp" alt="Smart meter">
-        <div class="caption">Tracks every gram</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/IMG-20260907-WA0156.jpg" alt="Low top-up">
-        <div class="caption">Top up from as low as KSh 20</div>
-      </div>
-    </div>
-  </section>
+.hero h1 span{
+color:var(--orange)
+}
 
-  <!-- OPERATIONS -->
-  <section style="padding-top: 0;">
-    <h2 class="section-title">Our depots, fleet & team</h2>
-    <p class="section-sub">Always stocked. Always moving. Always ready.</p>
-    <div class="visual-grid">
-      <div class="visual-card">
-        <img src="images/cylinders-yard.webp" alt="Cylinders ready">
-        <div class="caption">Ready for your home</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/depot-covered.webp" alt="Depot">
-        <div class="caption">Local depots near you</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/IMG-20260907-WA0152.jpg" alt="Riders">
-        <div class="caption">Branded last-mile riders</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/bikes-fleet.webp" alt="Fleet">
-        <div class="caption">Growing delivery fleet</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/loading.webp" alt="Loading">
-        <div class="caption">Always stocked</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/IMG-20260907-WA0185.jpg" alt="Delivery loading">
-        <div class="caption">On-the-go delivery</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/IMG-20260907-WA0168.jpg" alt="Stock">
-        <div class="caption">Thousands of cylinders ready</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/worker-field.webp" alt="Field">
-        <div class="caption">Field operations</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/team.webp" alt="Team">
-        <div class="caption">The team behind the service</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/training.webp" alt="Training">
-        <div class="caption">Trained for safety</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/wrapped-cylinders.webp" alt="Fresh stock">
-        <div class="caption">Fresh stock arriving</div>
-      </div>
-      <div class="visual-card">
-        <img src="images/delivery-promise.jpg" alt="Promise">
-        <div class="caption">Your order. Our promise.</div>
-      </div>
-    </div>
-  </section>
+.hero p{
+font-size:clamp(1rem,2.6vw,1.3rem);
+font-weight:600;
+opacity:.96;
+margin-bottom:1.5rem;
+}
 
-  <!-- CONTACT -->
-  <section class="contact" id="order">
-    <h2>Ready to enjoy clean cooking?</h2>
-    <p>Sign up in minutes. Cylinder & meter free. First top-up only KSh 250.</p>
-    
-    <div class="contact-grid">
-      <div class="contact-card">
-        <strong>TOLL-FREE / CALL</strong>
-        <a href="tel:+254100805122">+254 100 805 122</a>
-      </div>
-      <div class="contact-card">
-        <strong>WHATSAPP</strong>
-        <a href="https://wa.me/254100805122" target="_blank" rel="noopener">+254 100 805 122</a>
-      </div>
-      <div class="contact-card">
-        <strong>USSD</strong>
-        <span>*479#</span>
-      </div>
-      <div class="contact-card">
-        <strong>EMAIL</strong>
-        <a href="mailto:customercare@mgas.ke">customercare@mgas.ke</a>
-      </div>
-    </div>
+.hero-btns{
+display:flex;
+flex-wrap:wrap;
+gap:.7rem;
+justify-content:center;
+}
 
-    <div class="paybill">
-      M-Pesa Paybill: <span>804040</span><br>
-      <small style="font-weight:500; opacity:0.75; font-size:0.88rem;">Account = your M-Gas account number</small>
-    </div>
-  </section>
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:.4rem;
+padding:.82rem 1.35rem;
+border-radius:50px;
+font-weight:800;
+font-size:.92rem;
+transition:.25s;
+border:none;
+cursor:pointer;
+font-family:'Poppins',sans-serif;
+}
 
-  <footer>
-    <img src="images/logo.webp" alt="M-Gas">
-    <p><strong>M-Gas</strong> — Furahia Upishi Wako<br>
-    Clean cooking for every Kenyan home.<br>
-    © 2026 M-Gas. Powered by smart technology & Safaricom.</p>
-  </footer>
+.btn-primary{
+background:var(--orange);
+color:white;
+}
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/254100805122" class="float-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+.btn-primary:hover{
+background:var(--orange-bright);
+transform:translateY(-3px);
+box-shadow:0 10px 26px rgba(247,148,29,.45);
+}
 
-</body>
+.btn-outline{
+background:transparent;
+color:white;
+border:2px solid rgba(255,255,255,.9);
+}
+
+.btn-outline:hover{
+background:white;
+color:var(--blue);
+}
+
+/* ================= ANIMATED TITLES ================= */
+
+.section-title{
+position:relative;
+display:table;
+margin:0 auto .45rem;
+padding:.45rem 1.2rem;
+font-size:clamp(1.65rem,4.8vw,2.5rem);
+font-weight:900;
+color:var(--blue-dark);
+text-align:center;
+overflow:hidden;
+}
+
+.section-title::after{
+content:'';
+position:absolute;
+left:-100%;
+bottom:0;
+width:100%;
+height:4px;
+background:linear-gradient(90deg,var(--orange),white,var(--orange));
+animation:titleSweep 3s linear infinite;
+}
+
+@keyframes titleSweep{
+0%{left:-100%}
+100%{left:100%}
+}
+
+.section-sub{
+text-align:center;
+color:var(--gray);
+max-width:560px;
+margin:0 auto 1.8rem;
+font-size:.95rem;
+}
+
+/* ================= TRUST ================= */
+
+.trust{
+background:white;
+padding:1rem;
+border-bottom:1px solid #e2e8f0;
+}
+
+.trust-inner{
+max-width:1100px;
+margin:auto;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:1rem 1.6rem;
+text-align:center;
+font-size:.86rem;
+color:var(--gray);
+font-weight:600;
+}
+
+.trust-inner span{
+display:flex;
+align-items:center;
+gap:.3rem;
+}
+
+.trust-inner strong{
+color:var(--blue-dark)
+}
+
+/* ================= MAIN OFFER ================= */
+
+.offer-section{
+padding:2rem 1rem 3rem;
+background:
+linear-gradient(135deg,#fff,#eef4ff);
+}
+
+.offer-box{
+max-width:1100px;
+margin:auto;
+background:linear-gradient(135deg,var(--blue-dark),var(--blue));
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 20px 50px rgba(0,48,135,.25);
+position:relative;
+}
+
+.offer-box::before{
+content:'🔥 SPECIAL OFFER';
+position:absolute;
+top:15px;
+right:-38px;
+background:var(--orange);
+color:white;
+font-weight:900;
+font-size:.72rem;
+padding:.5rem 2.8rem;
+transform:rotate(35deg);
+z-index:3;
+}
+
+.offer-content{
+padding:2rem 1.2rem;
+text-align:center;
+color:white;
+}
+
+.offer-content h2{
+font-size:clamp(1.8rem,6vw,3rem);
+line-height:1.05;
+margin-bottom:.35rem;
+}
+
+.offer-content h2 span{
+color:var(--orange)
+}
+
+.offer-sub{
+font-size:.9rem;
+opacity:.9;
+margin-bottom:1.2rem;
+}
+
+.price-cards{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:.7rem;
+max-width:650px;
+margin:0 auto 1.2rem;
+}
+
+.price-card{
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.18);
+border-radius:14px;
+padding:.9rem .5rem;
+}
+
+.price-card strong{
+display:block;
+font-family:'Poppins';
+font-size:1.55rem;
+color:var(--orange-bright);
+}
+
+.price-card small{
+font-size:.72rem;
+opacity:.9;
+}
+
+.free-cooker{
+background:var(--orange);
+border-radius:16px;
+padding:1rem;
+margin:1rem auto;
+max-width:650px;
+box-shadow:0 8px 25px rgba(247,148,29,.3);
+}
+
+.free-cooker strong{
+font-size:1.15rem;
+display:block;
+}
+
+.gifts{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:.55rem;
+max-width:650px;
+margin:1rem auto;
+}
+
+.gift{
+background:white;
+color:var(--blue-dark);
+border-radius:12px;
+padding:.65rem .4rem;
+font-weight:800;
+font-size:.78rem;
+}
+
+.delivery{
+font-size:1rem;
+font-weight:800;
+margin:.8rem 0 1rem;
+}
+
+.offer-buttons{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:.65rem;
+}
+
+/* ================= PRODUCT ================= */
+
+section{
+padding:3.2rem 1.2rem
+}
+
+.product-wrap{
+max-width:1080px;
+margin:0 auto;
+display:grid;
+grid-template-columns:1fr;
+gap:2rem;
+align-items:center;
+}
+
+@media(min-width:800px){
+.product-wrap{
+grid-template-columns:1.05fr .95fr
+}
+}
+
+.product-img{
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 22px 50px rgba(0,48,135,.16);
+}
+
+.product-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+min-height:360px;
+}
+
+.product-info h2{
+font-size:2rem;
+color:var(--blue-dark);
+margin-bottom:.65rem;
+line-height:1.2;
+}
+
+.product-info>p{
+color:#475569;
+margin-bottom:1rem;
+font-size:.98rem;
+}
+
+.product-info ul{
+list-style:none;
+margin:1rem 0 1.3rem;
+}
+
+.product-info li{
+display:flex;
+align-items:flex-start;
+gap:.6rem;
+margin-bottom:.6rem;
+font-size:.92rem;
+}
+
+.product-info li::before{
+content:'✓';
+background:var(--orange);
+color:white;
+width:22px;
+height:22px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:.7rem;
+font-weight:900;
+flex-shrink:0;
+}
+
+/* ================= FEATURE CARDS ================= */
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:1rem;
+max-width:1180px;
+margin:0 auto;
+}
+
+.feature-card{
+position:relative;
+border-radius:16px;
+overflow:hidden;
+aspect-ratio:3/4;
+box-shadow:0 12px 32px rgba(0,0,0,.12);
+background:#000;
+}
+
+.feature-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:transform .55s ease;
+}
+
+.feature-card:hover img{
+transform:scale(1.07)
+}
+
+.feature-card .overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,18,48,.94),rgba(0,18,48,.18) 55%,transparent);
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+padding:1.3rem 1rem;
+color:white;
+}
+
+.feature-card h3{
+font-size:1.08rem;
+margin-bottom:.2rem;
+}
+
+.feature-card p{
+font-size:.82rem;
+opacity:.9;
+line-height:1.35;
+}
+
+/* ================= VISUAL GRID ================= */
+
+.visual-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:.9rem;
+max-width:1180px;
+margin:0 auto;
+}
+
+.visual-card{
+position:relative;
+border-radius:14px;
+overflow:hidden;
+aspect-ratio:4/3;
+box-shadow:0 8px 24px rgba(0,0,0,.1);
+}
+
+.visual-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:transform .5s ease;
+}
+
+.visual-card:hover img{
+transform:scale(1.07)
+}
+
+.visual-card .caption{
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+background:linear-gradient(transparent,rgba(0,31,84,.93));
+color:white;
+padding:1.5rem .95rem .85rem;
+font-weight:700;
+font-size:.86rem;
+font-family:'Poppins',sans-serif;
+}
+
+/* ================= HOW ================= */
+
+.how{
+background:var(--blue-dark);
+color:white;
+}
+
+.how .section-title{
+color:white
+}
+
+.how .section-sub{
+color:rgba(255,255,255,.8)
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:1rem;
+max-width:1080px;
+margin:0 auto;
+}
+
+.step{
+background:rgba(255,255,255,.07);
+border-radius:14px;
+padding:1.3rem 1rem;
+text-align:center;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.step-num{
+width:44px;
+height:44px;
+background:var(--orange);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+font-size:1.15rem;
+margin:0 auto .75rem;
+}
+
+.step h3{
+font-size:1rem;
+margin-bottom:.3rem;
+}
+
+.step p{
+font-size:.82rem;
+opacity:.85;
+}
+
+/* ================= HIGHLIGHT ================= */
+
+.highlight{
+display:grid;
+grid-template-columns:1fr;
+gap:0;
+max-width:1140px;
+margin:0 auto;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 24px 55px rgba(0,48,135,.16);
+}
+
+@media(min-width:700px){
+.highlight{
+grid-template-columns:1fr 1fr
+}
+}
+
+.highlight-img{
+min-height:320px
+}
+
+.highlight-img img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+
+.highlight-text{
+background:var(--blue);
+color:white;
+padding:2rem;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.highlight-text h2{
+font-size:1.7rem;
+margin-bottom:.65rem;
+line-height:1.25;
+}
+
+.highlight-text p{
+opacity:.92;
+margin-bottom:1rem;
+font-size:.92rem;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+background:linear-gradient(145deg,var(--blue-dark),var(--blue));
+color:white;
+text-align:center;
+padding:3.5rem 1.2rem;
+}
+
+.contact h2{
+font-size:clamp(1.7rem,5vw,2.5rem);
+margin-bottom:.3rem;
+}
+
+.contact>p{
+opacity:.9;
+margin-bottom:1.3rem;
+font-size:.95rem;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:.8rem;
+max-width:900px;
+margin:0 auto 1.4rem;
+}
+
+.contact-card{
+background:rgba(255,255,255,.1);
+border-radius:14px;
+padding:1rem;
+border:1px solid rgba(255,255,255,.14);
+}
+
+.contact-card strong{
+display:block;
+font-size:.72rem;
+opacity:.8;
+margin-bottom:.2rem;
+}
+
+.contact-card a,
+.contact-card span{
+font-size:1rem;
+font-weight:800;
+color:var(--orange-bright);
+font-family:'Poppins',sans-serif;
+}
+
+.contact-actions{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:.7rem;
+margin-bottom:1.2rem;
+}
+
+.call-btn{
+background:white;
+color:var(--blue-dark);
+}
+
+.wa-btn{
+background:#25D366;
+color:white;
+}
+
+.paybill{
+background:white;
+color:var(--blue-dark);
+display:inline-block;
+padding:.9rem 1.6rem;
+border-radius:12px;
+font-weight:800;
+font-size:1rem;
+box-shadow:0 8px 22px rgba(0,0,0,.15);
+}
+
+.paybill span{
+color:var(--orange);
+font-size:1.25rem;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+background:#000d1f;
+color:rgba(255,255,255,.7);
+text-align:center;
+padding:2rem 1rem 1.6rem;
+font-size:.8rem;
+}
+
+footer img{
+height:55px;
+margin:0 auto .6rem;
+opacity:.95;
+}
+
+footer strong{
+color:white
+}
+
+/* ================= FLOATING BUTTONS ================= */
+
+.float-buttons{
+position:fixed;
+right:1rem;
+bottom:1rem;
+z-index:99;
+display:flex;
+flex-direction:column;
+gap:.6rem;
+}
+
+.float-btn{
+width:54px;
+height:54px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:900;
+box-shadow:0 6px 20px rgba(0,0,0,.25);
+transition:.2s;
+}
+
+.float-btn:hover{
+transform:scale(1.1)
+}
+
+.float-wa{
+background:#25D366
+}
+
+.float-call{
+background:var(--orange)
+}
+
+.float-btn svg{
+width:26px;
+height:26px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+.nav-logo img{
+height:56px
+}
+
+.nav{
+padding:.2rem .7rem
+}
+
+.nav-cta{
+padding:.55rem .95rem;
+font-size:.78rem
+}
+
+.hero-logo{
+width:235px
+}
+
+.hero{
+min-height:88vh
+}
+
+.hero p{
+font-size:.9rem
+}
+
+.offer-section{
+padding:1.5rem .7rem 2.5rem
+}
+
+.offer-content{
+padding:1.7rem .8rem
+}
+
+.price-cards{
+gap:.5rem
+}
+
+.price-card strong{
+font-size:1.3rem
+}
+
+.gifts{
+gap:.45rem
+}
+
+.gift{
+font-size:.7rem
+padding:.6rem .25rem
+}
+
+section{
+padding:2.5rem .9rem
+}
+
+.product-img img{
+min-height:280px
+}
+
+.feature-grid{
+grid-template-columns:repeat(2,1fr);
+gap:.65rem
+}
+
+.feature-card{
+border-radius:12px
+}
+
+.feature-card h3{
+font-size:.85rem
+}
+
+.feature-card p{
+font-size:.7rem
+}
+
+.visual-grid{
+grid-template-columns:repeat(2,1fr);
+gap:.65rem
+}
+
+.visual-card{
+border-radius:11px
+}
+
+.visual-card .caption{
+font-size:.7rem;
+padding:1.2rem .55rem .6rem
+}
+
+.float-buttons{
+right:.7rem;
+bottom:.7rem
+}
+
+.float-btn{
+width:50px;
+height:50px
+}
+}
+</style></head><body><!-- NAV --><nav class="nav">
+<a href="#" class="nav-logo">
+<img src="images/logo.webp" alt="M-Gas Logo">
+</a><a href="#order" class="nav-cta">ORDER NOW</a>
+
+</nav><!-- HERO --><header class="hero"><div class="hero-content"><img src="images/logo.webp" alt="M-Gas" class="hero-logo"><h1>
+FURAHIA<br>
+<span>UPISHI WAKO</span>
+</h1><p>
+13KG M-Gas • Affordable daily payments • Free gifts • Free delivery
+</p><div class="hero-btns"><a href="tel:+254100048692" class="btn btn-primary">
+📞 Call Now
+</a><a href="https://wa.me/254785640398?text=Hello%20M-Gas%2C%20I%20am%20interested%20in%20the%2013KG%20M-Gas%20offer."
+class="btn btn-outline"
+target="_blank"
+rel="noopener">
+💬 WhatsApp
+</a>
+
+</div></div>
+</header><!-- TRUST --><div class="trust"><div class="trust-inner"><span>🔥 <strong>13KG</strong> Cylinder</span>
+<span>💰 <strong>KSh 550</strong> Deposit</span>
+<span>📅 <strong>KSh 20</strong> Daily</span>
+<span>🎁 <strong>FREE</strong> Gifts</span>
+<span>🚚 <strong>FREE</strong> Delivery</span>
+
+</div></div><!-- ================= BIG OFFER ================= --><section class="offer-section"><div class="offer-box"><div class="offer-content"><h2>
+GET YOUR <span>13KG M-GAS</span>
+</h2><div class="offer-sub">
+Start cooking for less today
+</div><div class="price-cards"><div class="price-card">
+<small>DEPOSIT</small>
+<strong>KSh 550</strong>
+</div><div class="price-card">
+<small>DAILY PAYMENT</small>
+<strong>KSh 20</strong>
+</div><div class="price-card">
+<small>PERIOD</small>
+<strong>12 MONTHS</strong>
+</div><div class="price-card">
+<small>DELIVERY</small>
+<strong>FREE</strong>
+</div></div><div class="free-cooker">
+<strong>🔥 FREE 2-BURNER COOKER</strong>
+<span>Included with the 13KG offer</span>
+</div><h3 style="margin-top:1rem">
+🎁 FREE GIFTS
+</h3><div class="gifts"><div class="gift">👕 2 M-Gas Shirts</div>
+<div class="gift">🧴 Liquid Soap</div>
+<div class="gift">☂️ Umbrella</div>
+<div class="gift">🍲 Sufuria</div></div><div class="delivery">
+🚚 FREE DELIVERY COUNTRYWIDE
+</div><div class="offer-buttons"><a href="tel:+254100048692" class="btn btn-primary">
+📞 +254 100 048 692
+</a><a href="https://wa.me/254785640398?text=Hello%20M-Gas%2C%20I%20want%20the%2013KG%20offer."
+class="btn btn-outline"
+target="_blank"
+rel="noopener">
+💬 WhatsApp
+</a>
+
+</div></div>
+</div></section><!-- ================= PRODUCT ================= --><section><div class="product-wrap"><div class="product-img"><img src="images/IMG-20260907-WA0186.jpg"
+alt="13KG M-Gas Cylinder">
+
+</div><div class="product-info"><h2>13KG M-Gas</h2><p>
+Smart, affordable cooking for your home.
+</p><ul><li>13KG LPG cylinder</li><li>KSh 550 deposit</li><li>KSh 20 daily payment for 12 months</li><li>Free 2-burner cooker</li><li>Free delivery countrywide</li></ul><a href="#order" class="btn btn-primary">
+Get Started
+</a></div></div></section><!-- ================= LIFESTYLE ================= --><section style="padding-top:.5rem"><h2 class="section-title">
+Real kitchens. Real moments.
+</h2><p class="section-sub">
+Clean cooking for every Kenyan home.
+</p><div class="feature-grid"><div class="feature-card">
+<img src="images/IMG-20260907-WA0176.jpg" alt="Family cooking with M-Gas">
+<div class="overlay">
+<h3>Jioni imefika</h3>
+<p>Chakula LAZIMA ipikwe.</p>
+</div>
+</div><div class="feature-card">
+<img src="images/IMG-20260907-WA0166.jpg" alt="Healthy family moments">
+<div class="overlay">
+<h3>Less Moshi</h3>
+<p>More healthy moments.</p>
+</div>
+</div><div class="feature-card">
+<img src="images/IMG-20260907-WA0183.jpg" alt="We care every day">
+<div class="overlay">
+<h3>Tunakujali</h3>
+<p>Kila siku.</p>
+</div>
+</div><div class="feature-card">
+<img src="images/IMG-20260907-WA0157.jpg" alt="Tuko Karibu Nawe">
+<div class="overlay">
+<h3>Tuko Karibu Nawe</h3>
+<p>Every step of the way.</p>
+</div>
+</div></div>
+</section><!-- MORE SERVICE MOMENTS --><section style="padding-top:0"><div class="feature-grid"><div class="feature-card">
+<img src="images/IMG-20260907-WA0180.jpg" alt="Support after installation">
+<div class="overlay">
+<h3>Ukihitaji usaidizi</h3>
+<p>Tuko.</p>
+</div>
+</div><div class="feature-card">
+<img src="images/IMG-20260907-WA0165.jpg" alt="Serving businesses">
+<div class="overlay">
+<h3>Hustle Yako</h3>
+<p>Tuko Nayo.</p>
+</div>
+</div><div class="feature-card">
+<img src="images/IMG-20260907-WA0178.jpg" alt="Behind the blue">
+<div class="overlay">
+<h3>Behind the Blue</h3>
+<p>Kuna commitment.</p>
+</div>
+</div><div class="feature-card">
+<img src="images/IMG-20260907-WA0154.jpg" alt="Customer care">
+<div class="overlay">
+<h3>Tuko Hapa</h3>
+<p>Kukusikiza.</p>
+</div>
+</div></div>
+</section><!-- ================= HOW IT WORKS ================= --><section class="how"><h2 class="section-title">
+How it works
+</h2><p class="section-sub">
+Simple. Fast. Affordable.
+</p><div class="steps"><div class="step">
+<div class="step-num">1</div>
+<h3>Sign up</h3>
+<p>Call or WhatsApp us.</p>
+</div><div class="step">
+<div class="step-num">2</div>
+<h3>We deliver</h3>
+<p>Free delivery countrywide.</p>
+</div><div class="step">
+<div class="step-num">3</div>
+<h3>Pay</h3>
+<p>KSh 20 daily for 12 months.</p>
+</div><div class="step">
+<div class="step-num">4</div>
+<h3>Cook</h3>
+<p>Enjoy clean cooking.</p>
+</div></div></section><!-- ================= COOKER PRICES ================= --><section><h2 class="section-title">
+Cookers
+</h2><p class="section-sub">
+Choose your burner size.
+</p><div class="visual-grid"><div class="visual-card"><img src="images/IMG-20260907-WA0150.jpg"
+alt="2 burner cooker">
+
+<div class="caption">
+2 Burner — KSh 550
+</div></div><div class="visual-card"><img src="images/IMG-20260907-WA0155.jpg"
+alt="3 burner cooker">
+
+<div class="caption">
+3 Burners — KSh 1,000
+</div></div><div class="visual-card"><img src="images/kitchen.webp"
+alt="4 burner cooker">
+
+<div class="caption">
+4 Burners — KSh 1,500
+</div></div></div></section><!-- ================= SMART METER ================= --><section><div class="highlight"><div class="highlight-img"><img src="images/meter-close.webp"
+alt="M-Gas smart meter">
+
+</div><div class="highlight-text"><h2>
+Smart meter
+</h2><p>
+Know your gas. Control your cooking. Pay as you use.
+</p><a href="#order" class="btn btn-primary">
+Get Started
+</a></div></div></section><!-- ================= REAL HOMES ================= --><section style="padding-top:0"><h2 class="section-title">
+In real homes
+</h2><p class="section-sub">
+Made for everyday cooking.
+</p><div class="visual-grid"><div class="visual-card">
+<img src="images/IMG-20260907-WA0158.jpg" alt="Chakula iko jikoni">
+<div class="caption">Chakula iko jikoni</div>
+</div><div class="visual-card">
+<img src="images/kitchen.webp" alt="Simple kitchen">
+<div class="caption">Simple setup</div>
+</div><div class="visual-card">
+<img src="images/IMG-20260907-WA0150.jpg" alt="2 burner stove">
+<div class="caption">2-burner stove</div>
+</div><div class="visual-card">
+<img src="images/IMG-20260907-WA0155.jpg" alt="Full cooker">
+<div class="caption">Bigger cooking</div>
+</div><div class="visual-card">
+<img src="images/smart-meter.webp" alt="Smart meter">
+<div class="caption">Smart meter</div>
+</div><div class="visual-card">
+<img src="images/IMG-20260907-WA0156.jpg" alt="Low top up">
+<div class="caption">Affordable top-up</div>
+</div></div></section><!-- ================= OPERATIONS ================= --><section style="padding-top:0"><h2 class="section-title">
+Our depots & team
+</h2><p class="section-sub">
+Always stocked. Always ready.
+</p><div class="visual-grid"><div class="visual-card">
+<img src="images/cylinders-yard.webp" alt="Cylinders ready">
+<div class="caption">Ready for your home</div>
+</div><div class="visual-card">
+<img src="images/depot-covered.webp" alt="Depot">
+<div class="caption">Local depots</div>
+</div><div class="visual-card">
+<img src="images/IMG-20260907-WA0152.jpg" alt="Riders">
+<div class="caption">Delivery riders</div>
+</div><div class="visual-card">
+<img src="images/bikes-fleet.webp" alt="Fleet">
+<div class="caption">Delivery fleet</div>
+</div><div class="visual-card">
+<img src="images/loading.webp" alt="Loading">
+<div class="caption">Always stocked</div>
+</div><div class="visual-card">
+<img src="images/IMG-20260907-WA0185.jpg" alt="Delivery">
+<div class="caption">On-the-go delivery</div>
+</div><div class="visual-card">
+<img src="images/IMG-20260907-WA0168.jpg" alt="Stock">
+<div class="caption">Cylinders ready</div>
+</div><div class="visual-card">
+<img src="images/worker-field.webp" alt="Field">
+<div class="caption">Field operations</div>
+</div><div class="visual-card">
+<img src="images/team.webp" alt="Team">
+<div class="caption">Our team</div>
+</div><div class="visual-card">
+<img src="images/training.webp" alt="Training">
+<div class="caption">Safety first</div>
+</div><div class="visual-card">
+<img src="images/wrapped-cylinders.webp" alt="Fresh stock">
+<div class="caption">Fresh stock</div>
+</div><div class="visual-card">
+<img src="images/delivery-promise.jpg" alt="Delivery promise">
+<div class="caption">Our promise</div>
+</div></div></section><!-- ================= CONTACT ================= --><section class="contact" id="order"><h2>
+Ready to cook?
+</h2><p>
+Get your 13KG M-Gas today.
+</p><div class="contact-actions"><a href="tel:+254100048692"
+class="btn call-btn">
+📞 Call +254 100 048 692
+</a>
+
+<a href="https://wa.me/254785640398?text=Hello%20M-Gas%2C%20I%20want%20to%20order%20the%2013KG%20M-Gas%20offer."
+class="btn wa-btn"
+target="_blank"
+rel="noopener">
+💬 WhatsApp +254 785 640 398
+</a>
+
+</div><div class="contact-grid"><div class="contact-card">
+<strong>CALL</strong>
+<a href="tel:+254100048692">
++254 100 048 692
+</a>
+</div><div class="contact-card">
+<strong>WHATSAPP</strong>
+<a href="https://wa.me/254785640398"
+target="_blank"
+rel="noopener">
++254 785 640 398
+</a>
+</div><div class="contact-card">
+<strong>USSD</strong>
+<span>*479#</span>
+</div><div class="contact-card">
+<strong>EMAIL</strong>
+<a href="mailto:customercare@mgas.ke">
+customercare@mgas.ke
+</a>
+</div></div><div class="paybill">M-Pesa Paybill:
+<span>804040</span>
+
+<br><small style="font-weight:500;opacity:.75;font-size:.78rem">
+Account = your M-Gas account number
+</small></div></section><!-- FOOTER --><footer><img src="images/logo.webp" alt="M-Gas"><p>
+<strong>M-Gas</strong> — Furahia Upishi Wako
+<br>
+Clean cooking for every Kenyan home.
+<br><br>
+© 2026 M-Gas
+</p></footer><!-- FLOATING BUTTONS --><div class="float-buttons"><a href="tel:+254100048692"
+class="float-btn float-call"
+aria-label="Call M-Gas">
+
+<svg viewBox="0 0 24 24" fill="currentColor">
+<path d="M6.62 10.79a15.46 15.46 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+</svg></a><a href="https://wa.me/254785640398?text=Hello%20M-Gas%2C%20I%20am%20interested%20in%20the%2013KG%20offer."
+class="float-btn float-wa"
+target="_blank"
+rel="noopener"
+aria-label="Chat on WhatsApp">
+
+<svg viewBox="0 0 24 24" fill="currentColor">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+</svg></a></div></body>
 </html>
